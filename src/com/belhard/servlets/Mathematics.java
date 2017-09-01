@@ -68,7 +68,6 @@ public class Mathematics extends HttpServlet {
             req.getServletContext().getRequestDispatcher("/mathematics.jsp").forward(req, resp);
         }
 
-
     }
 
     private double calcDiscr(int a,int b,int c ) {

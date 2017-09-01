@@ -29,22 +29,11 @@ public class HandleInputServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
 
-        Cookie[] cookies = req.getCookies();
+
         String login;
         String password;
         String name;
 
-        if (cookies != null) {
-            login = getLoginCookies(cookies);
-            password = getPasswordCookies(cookies);
-            name = getNameCookies(cookies);
-            if (checkUser(login, password) != null) {
-                ordinaryEnter(name, req, resp);
-            } else {
-                failEnter(req, resp);
-            }
-
-        } else {
              login = req.getParameter(LOGIN);
              password = req.getParameter(PASSWORD);
              name = checkUser(login, password);
@@ -54,7 +43,45 @@ public class HandleInputServlet extends HttpServlet{
                 failEnter(req, resp);
             }
         }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException{
+
+
+//        Cookie[] cookies = req.getCookies();
+//        String login;
+//        String password;
+//        String name;
+//        if (cookies != null) {
+//            login = getLoginCookies(cookies);
+//            password = getPasswordCookies(cookies);
+//            name = getNameCookies(cookies);
+//            if (checkUser(login, password) != null) {
+//                ordinaryEnter(name, req, resp);
+//            } else {
+//                failEnter(req, resp);
+//            }
+//        }
+
+
     }
+
+    //    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        Cookie[] cookies = req.getCookies();
+//        String login;
+//        String password;
+//        String name;
+//        if (cookies != null) {
+//            login = getLoginCookies(cookies);
+//            password = getPasswordCookies(cookies);
+//            name = getNameCookies(cookies);
+//            if (checkUser(login, password) != null) {
+//                ordinaryEnter(name, req, resp);
+//            } else {
+//                failEnter(req, resp);
+//            }
+//        }
+//    }
 
     private String getLoginCookies(Cookie[] cookies) {
         for (Cookie cook :
@@ -92,8 +119,7 @@ public class HandleInputServlet extends HttpServlet{
     }
 
     private void ordinaryEnter(String name, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("userName", name);
-        req.setAttribute("loginStatus", "true");
+        req.setAttribute("name", name);
         req.getRequestDispatcher("/afterLoginSuccess.jsp").forward(req, resp);
 
     }
@@ -102,11 +128,12 @@ public class HandleInputServlet extends HttpServlet{
         Cookie loginCookie = new Cookie("login", login);
         Cookie passCookie = new Cookie("password", password);
         Cookie nameCookie = new Cookie("name", name);
+        Cookie statusCookie = new Cookie("loginStatus", "true");
+        resp.addCookie(statusCookie);
         resp.addCookie(loginCookie);
         resp.addCookie(passCookie);
         resp.addCookie(nameCookie);
-        req.setAttribute("loginStatus", "true");
-
+        req.setAttribute("name", name);
         req.getRequestDispatcher("/afterLoginSuccess.jsp").forward(req, resp);
     }
 

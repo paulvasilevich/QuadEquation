@@ -7,6 +7,7 @@ import com.belhard.utils.Message;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,12 +40,31 @@ public class AutoMotoServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        PrintWriter out = resp.getWriter();
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
+            loginStatus = getStatusCookies(cookies);
+            if (loginStatus) {
+                user = (String) req.getAttribute("name");
+            }
+        }
+
         Enum room = SuperServlet.roomlist.AUTOMOTO;
         req.setAttribute("roomEnum", room);
         String roomName = room.toString().toLowerCase();
         req.setAttribute("roomname", roomName);
         req.getServletContext().getRequestDispatcher("/room.jsp").forward(req,resp);
 //        SuperServlet.getData(out, room,req, resp);
+    }
+
+    private boolean getStatusCookies(Cookie[] cookies) {
+        for (Cookie cook :
+                cookies) {
+            String cookString = cook.getName();
+            if (cookString.equals("loginStatus")) {
+                 return cook.getValue().equals("true");
+
+            }
+        }
+        return false;
     }
 }

@@ -25,5 +25,8 @@ public class SumServlet extends HttpServlet {
         req.getServletContext().setAttribute("placeB" , b1);
         req.setAttribute("placeS" , s);
         req.getServletContext().getRequestDispatcher("/sumResults.jsp").forward(req, resp);
+
+
+
     }
 }

@@ -64,10 +64,24 @@
         %>
     </table>
 </div>
-<form action="${roomname}.room" method="post">
-    <input type="text" name="message"  placeholder="Message..."/>
-    <input type="submit" name="submit_message" value="Send"/>
-</form>
+
+<%
+    Cookie[] cookies = request.getCookies();
+    for (Cookie c :
+            cookies) {
+        if (c.getName().equals("loginStatus") && c.getValue().equals("true")) {
+            out.println("<form action=\"${roomname}.room\" method=\"post\">\n" +
+                    "    <input type=\"text\" name=\"message\"  placeholder=\"Message...\"/>\n" +
+                    "    <input type=\"submit\" name=\"submit_message\" value=\"Send\"/>\n" +
+                    "</form>");
+        }
+    }
+
+%>
+<%--<form action="${roomname}.room" method="post">--%>
+    <%--<input type="text" name="message"  placeholder="Message..."/>--%>
+    <%--<input type="submit" name="submit_message" value="Send"/>--%>
+<%--</form>--%>
 
 </body>
 </html>
