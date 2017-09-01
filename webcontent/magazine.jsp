@@ -18,17 +18,28 @@
     <h1>Super Title fo r this page</h1>
     <c:forEach items="${spisok}" var="entry">
         <c:if test="${not entry.value}">
-    x
+            <form action="/shop" method="post">
+                <input type="submit" value="x">
+                <input name="product" value="${entry.key.name}" style="display: none">
+                <input  name = "x" value="false" style="display: none">
+            </form>
         </c:if>
-    ${entry.key.name} ${entry.key.price}
-        <br>
+     ${entry.key.name} ${entry.key.price}
+
     <c:if test="${entry.value}">
-        buy
+        <form action="/shop" method="post">
+            <input type="submit"  value="buy">
+            <input name="product" value="${entry.key.name}" style="display: none">
+            <input  name = "buy" value="true" style="display: none">
+        </form>
+        <hr>
+        <br>
     </c:if>
     </c:forEach>
 
-<hr>
+
 </div>
+
 
 
 </body>
