@@ -6,6 +6,7 @@ import com.belhard.utils.User;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,24 +39,15 @@ public class MyRegistrationServlet extends HttpServlet {
         DatabaseUsers.usersMap.put(login, user);
 
 
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("UTF-8");
 
-        PrintWriter outputPage = resp.getWriter();
 
-        outputPage.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">");
-        outputPage.println("<html>");
-        outputPage.println("<head>");
-        outputPage.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-        outputPage.println("<title>Hello Page</title>");
-        outputPage.println("</head>");
-        outputPage.println("<body>");
-        outputPage.println("<center>");
-        outputPage.println("<h1>Hello Page</h1>");
-        outputPage.println("</center>");
-        outputPage.println("<h1>User, " + login + " " + " are register now! Congratulations!" + "</h1>");
-        outputPage.println("<a href=\"" + req.getServletContext().getContextPath() + "/index.html\">Go To Index Page</a>");
+        req.setAttribute("login", login);
+        req.getServletContext().getRequestDispatcher("/afterRegistration.jsp").forward(req,resp);
 
+        Cookie logCook = new Cookie("login", login);
+        Cookie passCook = new Cookie("password", password);
+        resp.addCookie(logCook);
+        resp.addCookie(passCook);
     }
 
     @Override

@@ -5,6 +5,7 @@ public class Message {
     //private String user;
     private String message;
 
+
 //    public String getUser() {
 //        return user;
 //    }
