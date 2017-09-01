@@ -21,7 +21,7 @@
             <form action="/shop" method="post">
                 <input type="submit" value="x">
                 <input name="product" value="${entry.key.name}" style="display: none">
-                <input  name = "x" value="false" style="display: none">
+                <input  name = "buy" value="false" style="display: none">
             </form>
         </c:if>
      ${entry.key.name} ${entry.key.price}

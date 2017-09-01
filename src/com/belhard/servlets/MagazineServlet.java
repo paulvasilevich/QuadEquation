@@ -3,6 +3,7 @@ package com.belhard.servlets;
 
 import com.belhard.utils.Constants;
 import com.belhard.utils.Product;
+import javafx.scene.layout.BorderPane;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,11 +28,11 @@ public class MagazineServlet extends HttpServlet {
             for (Cookie cook :
                     cookies) {
                 if (cook.getName().equals("product_" + product.getName())) {
-                    canBy = false;
+                    canBy = Boolean.valueOf(cook.getValue());
                     break;
                 }
-                spisok.put(product, canBy);
             }
+            spisok.put(product, canBy);
         }
 
         req.setAttribute("spisok", spisok);
@@ -40,6 +41,25 @@ public class MagazineServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Boolean buy = Boolean.valueOf(req.getParameter("buy"));
+        Cookie[] cookies = req.getCookies();
+        Boolean isCookExist =  false;
+        String productName = req.getParameter("product");
+        for (Cookie c :
+                cookies) {
+            if (c.getName().equals("product_" + productName)) {
+                c.setValue(buy.toString());
+                resp.addCookie(c);
+                isCookExist = true;
+            }
+
+        }
+        if (!isCookExist) {
+            resp.addCookie(new Cookie("product_" + productName, buy.toString()));
+        }
+        doGet(req, resp);
+
 
     }
 
