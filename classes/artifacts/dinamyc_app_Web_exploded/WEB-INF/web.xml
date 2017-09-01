@@ -13,8 +13,11 @@
 </error-page>
 
 	<welcome-file-list>
-		<welcome-file>sum.html</welcome-file>
+		<welcome-file>/shop</welcome-file>
 	</welcome-file-list>
+	<!--<welcome-file-list>-->
+		<!--<welcome-file>sum.html</welcome-file>-->
+	<!--</welcome-file-list>-->
 
 	<!--<servlet>-->
 		<!--<servlet-name>HandleInputServlet</servlet-name>-->
