@@ -1,0 +1,15 @@
+<application>
+  <component name="DefaultFont">
+    <option name="FONT_SIZE" value="13" />
+    <option name="FONT_FAMILY" value="Source Code Pro" />
+    <option name="FONT_SCALE" value="1.25" />
+    <option name="LINE_SPACING" value="1.1" />
+    <option name="SECONDARY_FONT_FAMILY" value="Courier 10 Pitch" />
+  </component>
+  <component name="EditorSettings">
+    <option name="USE_SOFT_WRAPS" value="CONSOLE" />
+  </component>
+  <component name="SqlEditorOptions">
+    <option name="qualificationType" value="On collisions" />
+  </component>
+</application>
