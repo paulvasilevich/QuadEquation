@@ -6,13 +6,29 @@ import calculate.simple.Degree;
 import calculate.simple.Minus;
 import calculate.simple.Multiplication;
 import calculate.simple.Plus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
+@Component("roots")
+//@Component
 public  class Root implements Roots {
 
+//    @Resource(name = "degree")
+    @Autowired
     private Degree degree;
+//    @Resource(name = "minus")
+    @Autowired
     private Minus minus;
+//    @Resource(name = "plus")
+    @Autowired
     private Plus plus;
+//    @Resource(name = "multiplication")
+    @Autowired
     private Multiplication multiplication;
+//    @Resource(name = "discriminant")
+    @Autowired
     private Discriminant discriminant;
 
     public Degree getDegree() {

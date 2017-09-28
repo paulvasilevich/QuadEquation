@@ -1,7 +1,11 @@
 package calculate.simple;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
+//@Component("scan")
+//@Component
 public class Scan implements calculate.Scan{
 
     public Scan() {
@@ -21,7 +25,7 @@ public class Scan implements calculate.Scan{
 //            value = scan.nextDouble();
 //        } while (!scan.hasNextDouble());
 
-        System.out.println("Enter " + name + ": ");
+        System.out.print("Enter " + name + ": ");
         while (!scan.hasNextDouble()) {
             System.out.println("You enter wrong value. Try again!");
             scan.next();

@@ -1,6 +1,9 @@
 package calculate;
 
+
+
 import java.util.Scanner;
+
 
 public interface Scan {
 

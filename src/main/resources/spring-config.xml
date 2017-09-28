@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="roots" class="calculate.roots.Root">
-        <property name="discriminant" ref="discriminant"/>
-        <property name="minus" ref="minus"/>
-        <property name="plus" ref="plus"/>
-        <property name="degree" ref="degree"/>
-        <property name="multiplication" ref="multiplication"/>
-    </bean>
-    <bean id="discriminant" class="calculate.discriminant.Discriminant">
-        <property name="minus" ref="minus"/>
-        <property name="fourAC" ref="multiplication"/>
-    </bean>
-    <bean id="plus" class="calculate.simple.Plus"></bean>
-    <bean id="minus" class="calculate.simple.Minus"></bean>
-    <bean id="degree" class="calculate.simple.Degree"></bean>
-    <bean id="multiplication" class="calculate.simple.Multiplication"></bean>
-    <bean id="scan" class="calculate.simple.Scan"></bean>
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="java"/>
+
+    <!--<bean id="roots" class="calculate.roots.Root">-->
+        <!--<property name="discriminant" ref="discriminant"/>-->
+        <!--<property name="minus" ref="minus"/>-->
+        <!--<property name="plus" ref="plus"/>-->
+        <!--<property name="degree" ref="degree"/>-->
+        <!--<property name="multiplication" ref="multiplication"/>-->
+    <!--</bean>-->
+    <!--<bean id="discriminant" class="calculate.discriminant.Discriminant">-->
+        <!--<property name="minus" ref="minus"/>-->
+        <!--<property name="fourAC" ref="multiplication"/>-->
+    <!--</bean>-->
+    <!--<bean id="plus" class="calculate.simple.Plus"/>-->
+    <!--<bean id="minus" class="calculate.simple.Minus"/>-->
+    <!--<bean id="degree" class="calculate.simple.Degree"/>-->
+    <!--<bean id="multiplication" class="calculate.simple.Multiplication"/>-->
+    <bean id="scan" class="calculate.simple.Scan"/>
 
 </beans>

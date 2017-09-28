@@ -2,10 +2,21 @@ package calculate.discriminant;
 
 import calculate.simple.Minus;
 import calculate.simple.Multiplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
+@Component("discriminant")
+//@Component
 public class Discriminant implements calculate.Discriminant{
 
+//    @Resource(name = "minus")
+    @Autowired
     private Minus minus;
+
+//    @Resource(name = "multiplication")
+    @Autowired
     private Multiplication fourAC;
 
     public Minus getMinus() {
