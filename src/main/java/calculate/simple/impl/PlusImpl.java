@@ -1,12 +1,11 @@
-package calculate.simple;
+package calculate.simple.impl;
 
-import calculate.Calculate;
-import org.springframework.beans.factory.annotation.Autowired;
+import calculate.simple.Calculate;
 import org.springframework.stereotype.Component;
 
 @Component("plus")
 //@Component
-public class Plus implements Calculate {
+public class PlusImpl implements Calculate {
 
     public Double calculate(Double a, Double b) {
         return  (a + b);

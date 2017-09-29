@@ -1,11 +1,11 @@
-package calculate.simple;
+package calculate.simple.impl;
 
-import calculate.Calculate;
+import calculate.simple.Calculate;
 import org.springframework.stereotype.Component;
 
-@Component("degree")
+@Component("degree1")
 //@Component
-public class Degree implements Calculate {
+public class DegreeImpl implements Calculate {
     public Double calculate(Double a, Double b) {
         return  (a / b);
     }

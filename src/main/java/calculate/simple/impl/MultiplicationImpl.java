@@ -1,11 +1,11 @@
-package calculate.simple;
+package calculate.simple.impl;
 
-import calculate.Calculate;
+import calculate.simple.Calculate;
 import org.springframework.stereotype.Component;
 
 @Component("multiplication")
 //@Component
-public class Multiplication implements Calculate{
+public class MultiplicationImpl implements Calculate{
     public Double calculate(Double a, Double b) {
     return  (a * b);
 }

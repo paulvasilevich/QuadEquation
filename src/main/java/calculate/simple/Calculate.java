@@ -1,4 +1,4 @@
-package calculate;
+package calculate.simple;
 
 public interface Calculate {
 

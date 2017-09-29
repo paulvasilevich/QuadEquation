@@ -6,23 +6,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="java"/>
+    <context:component-scan base-package="calculate"/>
 
-    <!--<bean id="roots" class="calculate.roots.Root">-->
+    <!--<bean id="roots" class="calculate.roots.RootImplImpl">-->
         <!--<property name="discriminant" ref="discriminant"/>-->
         <!--<property name="minus" ref="minus"/>-->
         <!--<property name="plus" ref="plus"/>-->
         <!--<property name="degree" ref="degree"/>-->
         <!--<property name="multiplication" ref="multiplication"/>-->
     <!--</bean>-->
-    <!--<bean id="discriminant" class="calculate.discriminant.Discriminant">-->
+    <!--<bean id="discriminant" class="calculate.discriminant.DiscriminantImplImpl">-->
         <!--<property name="minus" ref="minus"/>-->
         <!--<property name="fourAC" ref="multiplication"/>-->
     <!--</bean>-->
-    <!--<bean id="plus" class="calculate.simple.Plus"/>-->
-    <!--<bean id="minus" class="calculate.simple.Minus"/>-->
-    <!--<bean id="degree" class="calculate.simple.Degree"/>-->
-    <!--<bean id="multiplication" class="calculate.simple.Multiplication"/>-->
-    <bean id="scan" class="calculate.simple.Scan"/>
+    <!--<bean id="plus" class="calculate.simple.PlusImplImpl"/>-->
+    <!--<bean id="minus" class="calculate.simple.MinusImplImpl"/>-->
+    <!--<bean id="degree" class="calculate.simple.DegreeImplImpl"/>-->
+    <!--<bean id="multiplication" class="calculate.simple.MultiplicationImplImpl"/>-->
+    <!--<bean id="scan" class="calculate.simple.Scan"/>-->
 
 </beans>
